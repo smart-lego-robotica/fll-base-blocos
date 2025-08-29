@@ -20,6 +20,14 @@ Essa organização permite separar cada parte do robô em **módulos independent
 
 ---
 
+## 🛠️ Personalização
+
+- Crie novos arquivos para cada missão: `MissaoD.py`, `MissaoE.py`, etc.  
+- Adicione funções no `Chassi.py` para novas movimentações do robô.  
+- Atualize `menu.py` para incluir novas opções de missões.
+
+---
+
 # 🔋 Nível de Bateria
 
 A cor do indicador representa o nível atual da bateria com base na voltagem medida:
@@ -32,13 +40,6 @@ A cor do indicador representa o nível atual da bateria com base na voltagem med
 
 ---
 
-## 🛠️ Personalização
-
-- Crie novos arquivos para cada missão: `MissaoD.py`, `MissaoE.py`, etc.  
-- Adicione funções no `Chassi.py` para novas movimentações do robô.  
-- Atualize `menu.py` para incluir novas opções de missões.
-
----
 
 ## 👥 Contribuindo
 
