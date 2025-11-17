@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ArqFox - Conectando Pesquisadores</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: #f9f6f1;
+        color: #333;
+    }
+    header {
+        background: linear-gradient(90deg, #4b2f1e, #7a4f2b);
+        color: #fff;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    header h1 { margin: 0; font-size: 2em; letter-spacing: 1px; }
+    nav { margin-top: 10px; }
+    nav a {
+        color: #fff; text-decoration: none; margin: 0 12px; font-weight: bold;
+        cursor: pointer;
+    }
+    main {
+        max-width: 900px; margin: 30px auto; background: #fff;
+        padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 { color: #4b2f1e; border-bottom: 2px solid #7a4f2b; padding-bottom: 5px; }
+    form { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+    input, textarea {
+        padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 1em;
+    }
+    textarea { resize: vertical; min-height: 100px; }
+    button {
+        background: #4b2f1e; color: #fff; border: none; padding: 12px;
+        border-radius: 6px; font-size: 1em; cursor: pointer; transition: 0.25s;
+    }
+    button:hover { background: #7a4f2b; }
+    .card { background: #fafafa; padding: 15px; border-radius: 8px; margin: 10px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.06); transition: transform 0.15s; }
+    .card:hover { transform: translateY(-3px); }
+    .card h3 { margin-top: 0; color: #4b2f1e; }
+    footer { text-align: center; background: #4b2f1e; color: #fff; padding: 15px; margin-top: 40px; }
+    section { display: none; }
+    section.active { display: block; animation: fadeIn 0.35s; }
+    .small { font-size: 0.9em; color: #666; }
+    .video-wrap { position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 */ height: 0; margin-top: 12px; }
+    .video-wrap iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; border-radius:8px; }
+    .curso-detalhe p { margin: 8px 0; line-height:1.45; color:#333; }
+    .list-small { margin: 6px 0 12px 18px; color:#333; }
+    .badge { display:inline-block; padding:6px 10px; background:#e9f5ea; color:#2f4f32; border-radius:12px; font-weight:600; margin-right:6px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0); } }
+    /* Cute tweaks (subtle) */
+    .cute-title { font-family: 'Segoe UI', Tahoma, sans-serif; font-weight:700; letter-spacing:0.6px; }
+</style>
+</head>
+<body>
+<header>
+    <div style="position:relative;">
+        <h1 id="site-title" class="cute-title">ArqFox</h1>
+        <div class="top-right" id="userArea" style="position:absolute; right:12px; top:18px;"></div>
+    </div>
+    <nav>
+        <a onclick="mostrar('inicio')">Início</a>
+        <a onclick="mostrar('cadastro')">Cadastrar</a>
+        <a onclick="mostrar('contatos')">Contatos</a>
+        <a onclick="mostrar('cursos')">Cursos</a>
+        <a onclick="mostrar('certificados')">Certificados</a>
+        <a onclick="mostrar('suporte')">Suporte</a>
+        <a onclick="mostrar('sobre')">Sobre</a>
+    </nav>
+</header>
+
+<main>
+    <!-- INÍCIO -->
+    <section id="inicio" class="active">
+        <h2>Bem-vindo ao ArqFox</h2>
+        <p>Conecte-se com pesquisadores e arqueólogos de vários lugares, troque descobertas e colabore em projetos.</p>
+
+        <h3>Entrar</h3>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Seu e-mail" required />
+            <input type="password" id="loginSenha" placeholder="Sua senha" required />
+            <button type="submit">Entrar</button>
+            <div id="loginMsg" class="small"></div>
+        </form>
+    </section>
+
+    <!-- CADASTRO -->
+    <section id="cadastro">
+        <h2>Cadastrar Conta</h2>
+        <form id="cadastroForm">
+            <input type="text" id="nome" placeholder="Nome completo" required />
+            <input type="email" id="email" placeholder="E-mail" required />
+            <input type="password" id="senha" placeholder="Senha (mín. 6 caracteres)" required />
+            <input type="password" id="senhaConf" placeholder="Confirme a senha" required />
+            <input type="text" id="especializacao" placeholder="Área de especialização" required />
+            <input type="text" id="local" placeholder="Local de pesquisa" required />
+            <button type="submit">Cadastrar</button>
+            <div id="cadMsg" class="small"></div>
+        </form>
+    </section>
+
+    <!-- CONTATOS -->
+    <section id="contatos">
+        <h2>Pesquisadores Cadastrados</h2>
+        <div id="listaArqueologos"></div>
+        <div id="contatosMsg" class="small"></div>
+    </section>
+
+    <!-- CURSOS -->
+    <section id="cursos">
+        <h2>Cursos ArqFox</h2>
+        <p class="small">Selecione um curso para ver a descrição técnica e o vídeo de apoio.</p>
+        <div id="listaCursos"></div>
+        <div id="cursoConteudo" style="margin-top:20px;"></div>
+    </section>
+
+    <!-- CERTIFICADOS -->
+    <section id="certificados">
+        <h2>Seus Certificados</h2>
+        <p class="small">Aqui aparecerão os certificados dos cursos finalizados (salvos localmente no seu navegador).</p>
+        <div id="listaCertificados"></div>
+    </section>
+
+    <!-- SUPORTE -->
+    <section id="suporte">
+        <h2>Suporte ArqFox</h2>
+        <p>Fale diretamente com nossa equipe pelo e-mail:</p>
+        <p><strong>E-mail:</strong>
+           <a href="mailto:smartlegojuniorescolasesi@gmail.com">smartlegojuniorescolasesi@gmail.com</a>
+        </p>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <h2>Sobre o ArqFox</h2>
+        <p>O ArqFox conecta especialistas e estudantes na área da arqueologia e ciências afins, promovendo trocas e novas descobertas.</p>
+        <p class="small">Equipe Smart Lego Junior — Escola Firjan Sesi Resende</p>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 ArqFox - Rede de pesquisadores</p>
+</footer>
+
+<script>
+/* ====== UTILITÁRIOS DE ARMAZENAMENTO E AUTENTICAÇÃO ====== */
+async function hashPassword(password) {
+    const enc = new TextEncoder();
+    const data = enc.encode(password);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+const STORAGE_USERS = 'arqfox_users_v1';
+const STORAGE_CURRENT = 'arqfox_current_v1';
+const STORAGE_CERTS = 'arqfox_certs_v1';
+
+function loadUsers() { return JSON.parse(localStorage.getItem(STORAGE_USERS) || '[]'); }
+function saveUsers(users) { localStorage.setItem(STORAGE_USERS, JSON.stringify(users)); }
+function getCurrentUser() { return localStorage.getItem(STORAGE_CURRENT); }
+function setCurrentUser(email) { localStorage.setItem(STORAGE_CURRENT, email); renderUserArea(); }
+function clearCurrentUser() { localStorage.removeItem(STORAGE_CURRENT); renderUserArea(); }
+
+function loadCerts() { return JSON.parse(localStorage.getItem(STORAGE_CERTS) || '{}'); }
+function saveCerts(certs) { localStorage.setItem(STORAGE_CERTS, JSON.stringify(certs)); }
+
+/* ====== NAVEGAÇÃO DE SEÇÕES ====== */
+function mostrar(id) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    const el = document.getElementById(id);
+    if (el) el.classList.add("active");
+    if (id === 'contatos') atualizarLista();
+    if (id === 'cursos') carregarCursos();
+    if (id === 'certificados') atualizarCertificados();
+}
+
+/* ====== ÁREA DE USUÁRIO ====== */
+function renderUserArea() {
+    const area = document.getElementById('userArea');
+    const email = getCurrentUser();
+    if (email) {
+        area.innerHTML = `
+            <div style="text-align:right;">
+                <div class="small">Conectado como <strong>${email}</strong></div>
+                <button onclick="logout()" style="margin-top:6px;padding:6px 10px;font-size:0.9em;">Sair</button>
+            </div>`;
+    } else {
+        area.innerHTML = '<div style="text-align:right;"><button onclick="mostrar(\'inicio\')">Entrar</button></div>';
+    }
+}
+
+/* ====== CADASTRO ====== */
+document.getElementById("cadastroForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const senha = document.getElementById("senha").value;
+    const senhaConf = document.getElementById("senhaConf").value;
+    const especializacao = document.getElementById("especializacao").value.trim();
+    const local = document.getElementById("local").value.trim();
+    const msg = document.getElementById("cadMsg");
+    msg.textContent = '';
+
+    if (senha.length < 6) return msg.innerHTML = '<span class="error">Senha precisa ter pelo menos 6 caracteres.</span>';
+    if (senha !== senhaConf) return msg.innerHTML = '<span class="error">As senhas não conferem.</span>';
+
+    const users = loadUsers();
+    if (users.some(u => u.email === email)) return msg.innerHTML = '<span class="error">E-mail já cadastrado.</span>';
+
+    const hash = await hashPassword(senha);
+    users.push({ nome, email, hash, especializacao, local });
+    saveUsers(users);
+    setCurrentUser(email);
+    msg.innerHTML = '<span class="success">Cadastro realizado com sucesso!</span>';
+    e.target.reset();
+    mostrar('contatos');
+});
+
+/* ====== LOGIN ====== */
+document.getElementById("loginForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+    const senha = document.getElementById("loginSenha").value;
+    const msg = document.getElementById("loginMsg");
+    msg.textContent = '';
+
+    const users = loadUsers();
+    const user = users.find(u => u.email === email);
+    if (!user) return msg.innerHTML = '<span class="error">Usuário não encontrado.</span>';
+
+    const hash = await hashPassword(senha);
+    if (hash !== user.hash) return msg.innerHTML = '<span class="error">Senha incorreta.</span>';
+
+    setCurrentUser(email);
+    msg.innerHTML = '<span class="success">Login bem-sucedido!</span>';
+    document.getElementById("loginForm").reset();
+    mostrar('contatos');
+});
+
+/* ====== LOGOUT ====== */
+function logout() {
+    clearCurrentUser();
+    alert('Você saiu da conta.');
+    mostrar('inicio');
+}
+
+/* ====== LISTA DE PESQUISADORES ====== */
+function atualizarLista() {
+    const lista = document.getElementById("listaArqueologos");
+    const users = loadUsers();
+    lista.innerHTML = users.length
+        ? users.map(u => `
+            <div class="card">
+                <h3>${u.nome}</h3>
+                <p><strong>Especialização:</strong> ${u.especializacao}</p>
+                <p><strong>Local:</strong> ${u.local}</p>
+                <p class="small">E-mail: <a href="mailto:${u.email}">${u.email}</a></p>
+            </div>`).join('')
+        : '<p class="small">Nenhum pesquisador cadastrado ainda.</p>';
+}
+
+/* ====== CURSOS (conteúdo técnico + vídeos embed) ====== */
+/* Vídeos escolhidos como material de apoio (IDs de embed) */
+const cursos = [
+    {
+        id: 1,
+        nome: "Uso de Drones na Arqueologia",
+        conteudo: {
+            resumo: "Aplicações de drones no mapeamento de sítios, levantamento aerofotogramétrico e monitoramento.",
+            aprendizagem: [
+                "Planejamento de voo para mapeamento (sobreposição de imagens, gcp).",
+                "Noções de fotogrametria: captura, alinhamento e geração de ortofotos/DSM.",
+                "Segurança, regulamentos e requisitos legais para operação em campo.",
+                "Fluxo de trabalho: captura → processamento (software) → análise."
+            ],
+            recomendacao: "Ideal para equipes de campo que precisam criar modelos 3D e mapas topográficos com custo reduzido."
+        },
+        videoId: "jH1aJSUrbTQ"
+    },
+    {
+        id: 2,
+        nome: "Escaneamento 3D (fotogrametria e scanners)",
+        conteudo: {
+            resumo: "Técnicas para digitalizar objetos e áreas usando fotogrametria e scanners a laser.",
+            aprendizagem: [
+                "Diferença entre fotogrametria (fotos) e scanners (LIDAR/time-of-flight).",
+                "Captura adequada: iluminação, número de imagens e cobertura angular.",
+                "Pós-processamento: registro de nuvens de pontos, limpeza e geração de malha.",
+                "Exportação para formatos comuns (.obj, .ply) e preparação para impressão ou análise."
+            ],
+            recomendacao: "Útil para documentação de artefatos, reconstruções digitais e preservação do patrimônio."
+        },
+        videoId: "Gl-iY0sP2yg"
+    },
+    {
+        id: 3,
+        nome: "Realidade Aumentada aplicada ao Patrimônio",
+        conteudo: {
+            resumo: "Uso de AR para visualizar reconstruções, sobrepor informações e criar visitas guiadas interativas.",
+            aprendizagem: [
+                "Conceitos de rastreamento: presente (markerless) e baseado em marcadores.",
+                "Otimização de modelos 3D para AR (LOD, texturas, tamanho do arquivo).",
+                "Plataformas e ferramentas: ARKit, ARCore, WebAR e frameworks de visualização.",
+                "Casos de uso: interpretações visuais, tours educativos e exibições em museus."
+            ],
+            recomendacao: "Aplicável em projetos educativos e interpretativos, especialmente para público leigo."
+        },
+        videoId: "PyHb8vEUgD4"
+    },
+    {
+        id: 4,
+        nome: "Impressoras 3D: do modelo à réplica física",
+        conteudo: {
+            resumo: "Processo de transformar um modelo digital em peça física por impressão 3D; seleção de materiais e parâmetros.",
+            aprendizagem: [
+                "Tipos de impressora (FDM, SLA) e escolha de materiais (PLA, ABS, resinas).",
+                "Preparação do modelo: malha limpa, suportes e fatiamento (slicing).",
+                "Configurações críticas: temperatura, velocidade, altura de camada e aderência à mesa.",
+                "Pós-processamento: limpeza, cura (SLA) e acabamento."
+            ],
+            recomendacao: "Recomendado para prototipagem rápida, reprodução de artefatos para estudo e exposições."
+        },
+        videoId: "2vFdwz4U1VQ"
+    }
+];
+
+/* Renderiza a lista de cursos */
+function carregarCursos() {
+    const lista = document.getElementById("listaCursos");
+    lista.innerHTML = cursos.map(c => `
+        <div class="card">
+            <h3>${c.nome}</h3>
+            <p class="small">${c.conteudo.resumo}</p>
+            <button onclick="abrirCurso(${c.id})">Ver detalhes</button>
+        </div>
+    `).join('');
+}
+
+/* Abre os detalhes do curso com explicação estruturada e vídeo embutido */
+function abrirCurso(id) {
+    const curso = cursos.find(c => c.id === id);
+    if (!curso) return;
+
+    const detalhesHTML = `
+        <div class="card curso-detalhe">
+            <h3>${curso.nome}</h3>
+            <p><strong>Resumo:</strong> ${curso.conteudo.resumo}</p>
+
+            <p><strong>O que você aprenderá:</strong></p>
+            <ul class="list-small">
+                ${curso.conteudo.aprendizagem.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+
+            <p><strong>Recomendação de uso:</strong> ${curso.conteudo.recomendacao}</p>
+
+            <h4>Vídeo de apoio</h4>
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/${curso.videoId}"
+                        title="${curso.nome} - vídeo" allowfullscreen></iframe>
+            </div>
+
+            <div style="margin-top:12px; display:flex; gap:8px;">
+                <button onclick="finalizarCurso(${curso.id})">Finalizar curso</button>
+                <button onclick="baixarCertificado(${curso.id})">Baixar certificado (PDF)</button>
+            </div>
+
+            <p class="small" style="margin-top:10px;">
+                Observação: o vídeo é material de apoio introdutório. O curso pode ser expandido com exercícios práticos,
+                módulos específicos e avaliação, se desejar.
+            </p>
+        </div>
+    `;
+
+    document.getElementById("cursoConteudo").innerHTML = detalhesHTML;
+}
+
+/* Finalizar curso -> grava certificado para o usuário atual */
+function finalizarCurso(cursoId) {
+    const user = getCurrentUser();
+    if (!user) { alert('Faça login antes de finalizar um curso.'); return; }
+    const curso = cursos.find(c => c.id === cursoId);
+    if (!curso) return;
+
+    const certs = loadCerts();
+    if (!certs[user]) certs[user] = [];
+    // não duplicar
+    if (!certs[user].includes(curso.nome)) {
+        certs[user].push(curso.nome);
+        saveCerts(certs);
+        alert('Curso concluído! Certificado adicionado ao seu perfil.');
+        atualizarCertificados();
+    } else {
+        alert('Você já concluiu este curso.');
+    }
+}
+
+/* Gera um PDF simples e baixa (cliente) — usa janela de impressão para simplicidade */
+function baixarCertificado(cursoId) {
+    const user = getCurrentUser();
+    if (!user) { alert('Faça login para baixar certificados.'); return; }
+    const curso = cursos.find(c => c.id === cursoId);
+    if (!curso) return;
+
+    const users = loadUsers();
+    const pessoa = users.find(u => u.email === user) || { nome: user };
+
+    // Cria HTML simples para impressão/PDF
+    const html = `
+        <html>
+        <head>
+            <meta charset="utf-8"/>
+            <title>Certificado - ${curso.nome}</title>
+            <style>
+                body { font-family: Arial, sans-serif; text-align:center; padding:40px; }
+                .card { border: 6px solid #4b2f1e; padding:30px; border-radius:12px; }
+                h1 { margin:0; color:#4b2f1e; }
+                p { margin:8px 0; }
+            </style>
+        </head>
+        <body>
+            <div class="card">
+                <h1>Certificado de Conclusão</h1>
+                <p class="small">Certificamos que</p>
+                <h2>${pessoa.nome}</h2>
+                <p class="small">concluiu com êxito o curso</p>
+                <h3>${curso.nome}</h3>
+                <p class="small">em ${new Date().toLocaleDateString()}</p>
+            </div>
+        </body>
+        </html>
+    `;
+
+    const w = window.open('', '_blank');
+    if (!w) { alert('Bloqueador de pop-ups impediu o download. Permita pop-ups para baixar.'); return; }
+    w.document.write(html);
+    w.document.close();
+    // delay pequeno para garantir renderização antes de imprimir
+    setTimeout(() => { w.print(); /* w.close(); keep open so user can save */ }, 300);
+}
+
+/* Atualiza a lista de certificados na aba */
+function atualizarCertificados() {
+    const container = document.getElementById('listaCertificados');
+    const user = getCurrentUser();
+    if (!user) {
+        container.innerHTML = '<p class="small">Faça login para ver seus certificados.</p>';
+        return;
+    }
+    const certs = loadCerts();
+    const meus = certs[user] || [];
+    if (!meus.length) {
+        container.innerHTML = '<p class="small">Você ainda não concluiu nenhum curso.</p>';
+        return;
+    }
+
+    container.innerHTML = meus.map(c => `
+        <div class="card" style="display:flex; align-items:center; justify-content:space-between;">
+            <div>
+                <span class="badge">✓ Certificado</span>
+                <strong>${c}</strong>
+                <div class="small">Emitido em: ${new Date().toLocaleDateString()}</div>
+            </div>
+            <div>
+                <button onclick="baixarCertificadoPorNome('${encodeURIComponent(c)}')">Baixar</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+/* Baixar certificado por nome (procura curso correspondente) */
+function baixarCertificadoPorNome(nomeEncoded) {
+    const nome = decodeURIComponent(nomeEncoded);
+    const curso = cursos.find(c => c.nome === nome);
+    if (!curso) {
+        // gerar certificado genérico mesmo assim
+        const fakeCurso = { id: 0, nome };
+        const users = loadUsers();
+        const pessoa = users.find(u => u.email === getCurrentUser()) || { nome: getCurrentUser() };
+        const html = `
+            <html><head><meta charset="utf-8"/><title>Certificado - ${nome}</title></head>
+            <body><h1>Certificado: ${nome}</h1><p>${pessoa.nome}</p></body></html>
+        `;
+        const w = window.open('', '_blank'); if (!w) { alert('Bloqueador de pop-ups impediu o download.'); return; }
+        w.document.write(html); w.document.close(); setTimeout(() => { w.print(); }, 200);
+        return;
+    }
+    baixarCertificado(curso.id);
+}
+
+/* ====== INICIALIZAÇÃO ====== */
+(function init() {
+    renderUserArea();
+    atualizarLista();
+    carregarCursos();
+    // se quiser abrir cursos por padrão, chamar mostrar('cursos')
+})();
+</script>
+</body>
+</html>
