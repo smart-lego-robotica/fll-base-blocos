@@ -59,10 +59,25 @@
 </head>
 <body>
 <header>
-    <div style="position:relative;">
-        <h1 id="site-title" class="cute-title">ArqFox</h1>
-        <div class="top-right" id="userArea" style="position:absolute; right:12px; top:18px;"></div>
+<div style="position:relative; display:flex; align-items:center; justify-content:center; gap:12px;">    
+
+    <!-- FUNDO ATRÁS DA IMAGEM -->
+    <div style="background:#f9f6f1; padding:6px; border-radius:6px;">
+        <img src="https://www.mediafire.com/convkey/4209/qw31t49yzduyni4zg.jpg"
+             alt="Logo ArqFox"
+             style="height: 8em; width: auto; border-radius:6px;" />
     </div>
+
+    <!-- TÍTULO -->
+    <h1 id="site-title" class="cute-title" style="margin:0; font-size:2.5em; color:white;">
+        ArqFox
+    </h1>
+
+    <!-- ÁREA DO USUÁRIO -->
+    <div class="top-right" id="userArea" style="position:absolute; right:12px; top:18px;"></div>
+</div>
+
+
     <nav>
         <a onclick="mostrar('inicio')">Início</a>
         <a onclick="mostrar('cadastro')">Cadastrar</a>
@@ -266,7 +281,6 @@ function atualizarLista() {
 }
 
 /* ====== CURSOS (conteúdo técnico + vídeos embed) ====== */
-/* Vídeos escolhidos como material de apoio (IDs de embed) */
 const cursos = [
     {
         id: 1,
@@ -498,7 +512,6 @@ function baixarCertificadoPorNome(nomeEncoded) {
     renderUserArea();
     atualizarLista();
     carregarCursos();
-    // se quiser abrir cursos por padrão, chamar mostrar('cursos')
 })();
 </script>
 </body>
