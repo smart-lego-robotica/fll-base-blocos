@@ -55,6 +55,93 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0); } }
     /* Cute tweaks (subtle) */
     .cute-title { font-family: 'Segoe UI', Tahoma, sans-serif; font-weight:700; letter-spacing:0.6px; }
+    /* ====== ANIMAÇÕES E ABA ATIVA ====== */
+    nav a {
+        position: relative;
+        padding-bottom: 4px;
+        transition: color 0.3s ease;
+    }
+
+    nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 3px;
+        background: #ffd27f;
+        transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    nav a.active {
+        color: #ffd27f;
+    }
+
+    nav a.active::after {
+        width: 100%;
+    }
+
+    /* Animação mais suave nas seções */
+    section {
+        display: none;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    section.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+        /* ===== FAQ ACCORDION ===== */
+    .faq-item {
+        margin-bottom: 10px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .faq-question {
+        width: 100%;
+        text-align: left;
+        padding: 14px;
+        font-size: 1em;
+        font-weight: bold;
+        background: #4b2f1e;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+        background: #7a4f2b;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        background: #fff;
+        transition: max-height 0.4s ease, padding 0.3s ease;
+        padding: 0 14px;
+    }
+
+    .faq-answer p {
+        margin: 10px 0;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 200px;
+        padding: 10px 14px;
+    }
+
+
 </style>
 </head>
 <body>
@@ -79,6 +166,8 @@
         <a onclick="mostrar('certificados')">Certificados</a>
         <a onclick="mostrar('suporte')">Suporte</a>
         <a onclick="mostrar('sobre')">Sobre</a>
+        <a onclick="mostrar('faq')">Perguntas Frequentes</a>
+
     </nav>
 </header>
 
@@ -133,6 +222,69 @@
         <p class="small">Aqui aparecerão os certificados dos cursos finalizados (salvos localmente no seu navegador).</p>
         <div id="listaCertificados"></div>
     </section>
+    
+    <section id="faq">
+        <h2>Perguntas Frequentes sobre Arqueologia</h2>
+
+        <div class="faq-item">
+            <button class="faq-question">O que é arqueologia?</button>
+            <div class="faq-answer">
+                <p>A arqueologia estuda sociedades antigas através de objetos, construções e vestígios deixados pelos seres humanos.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Arqueólogos estudam dinossauros?</button>
+            <div class="faq-answer">
+                <p>Não. Dinossauros são estudados pela paleontologia. A arqueologia estuda a história humana.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Quais tecnologias a arqueologia usa hoje?</button>
+            <div class="faq-answer">
+                <p>Drones, escaneamento 3D, GPS, SIG, realidade aumentada e modelagem digital são cada vez mais comuns.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">O que é um sítio arqueológico?</button>
+            <div class="faq-answer">
+                <p>É um local onde foram encontrados vestígios de atividades humanas antigas, como ferramentas, cerâmicas ou construções.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Por que a arqueologia é importante?</button>
+            <div class="faq-answer">
+                <p>Ela preserva a história da humanidade e ajuda a entender como as civilizações evoluíram ao longo do tempo.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Qual a diferença entre arqueologia e história?</button>
+            <div class="faq-answer">
+                <p>A história estuda o passado com base em documentos escritos. A arqueologia usa objetos e vestígios materiais.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Como os arqueólogos sabem a idade dos objetos?</button>
+            <div class="faq-answer">
+                <p>Usam técnicas como datação por carbono 14, análise de camadas do solo e comparação com artefatos já conhecidos.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">Posso visitar um sítio arqueológico?</button>
+            <div class="faq-answer">
+                <p>Alguns são abertos ao público, mas muitos são protegidos por lei para evitar danos ao patrimônio histórico.</p>
+            </div>
+        </div>
+
+    </section>
+
+
 
     <!-- SUPORTE -->
     <section id="suporte">
@@ -146,9 +298,28 @@
     <!-- SOBRE -->
     <section id="sobre">
         <h2>Sobre o ArqFox</h2>
-        <p>O ArqFox conecta especialistas e estudantes na área da arqueologia e ciências afins, promovendo trocas e novas descobertas.</p>
-        <p class="small">Equipe Smart Lego Junior — Escola Firjan Sesi Resende</p>
+
+        <p>O <strong>ArqFox</strong> é uma plataforma educacional criada para aproximar estudantes, pesquisadores e apaixonados por arqueologia.</p>
+
+        <p>A arqueologia moderna utiliza tecnologias como <strong>drones, escaneamento 3D, realidade aumentada e impressão 3D</strong> para preservar e estudar o passado com maior precisão.</p>
+
+        <h3>🎯 Missão</h3>
+        <p>Conectar pessoas, tecnologias e descobertas para preservar a história da humanidade.</p>
+
+        <h3>🚀 O que oferecemos</h3>
+        <ul class="list-small">
+            <li>Rede de pesquisadores e estudantes</li>
+            <li>Cursos tecnológicos aplicados à arqueologia</li>
+            <li>Certificados de aprendizado</li>
+            <li>Compartilhamento de conhecimento científico</li>
+        </ul>
+
+        <h3>🤖 Projeto Educacional</h3>
+        <p>Desenvolvido pela equipe <strong>Smart Lego Junior — Escola Firjan SESI Resende</strong> unindo robótica, tecnologia e patrimônio histórico.</p>
+
+        <p class="small">Aprender o passado. Construir o futuro.</p>
     </section>
+
 </main>
 
 <footer>
@@ -181,12 +352,19 @@ function saveCerts(certs) { localStorage.setItem(STORAGE_CERTS, JSON.stringify(c
 /* ====== NAVEGAÇÃO DE SEÇÕES ====== */
 function mostrar(id) {
     document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+
     const el = document.getElementById(id);
     if (el) el.classList.add("active");
+
+    const linkAtivo = document.querySelector(`nav a[onclick="mostrar('${id}')"]`);
+    if (linkAtivo) linkAtivo.classList.add("active");
+
     if (id === 'contatos') atualizarLista();
     if (id === 'cursos') carregarCursos();
     if (id === 'certificados') atualizarCertificados();
 }
+
 
 /* ====== ÁREA DE USUÁRIO ====== */
 function renderUserArea() {
@@ -334,7 +512,38 @@ const cursos = [
             recomendacao: "Recomendado para prototipagem rápida, reprodução de artefatos para estudo e exposições."
         },
         videoId: "2vFdwz4U1VQ"
+    },
+    {
+        id: 5,
+        nome: "Informática Básica para Pesquisadores",
+        conteudo: {
+            resumo: "Fundamentos de informática para organizar dados arqueológicos.",
+            aprendizagem: [
+                "Organização de arquivos e pastas de pesquisa",
+                "Uso básico de editores de texto e planilhas",
+                "Backup e armazenamento em nuvem",
+                "Segurança digital para pesquisadores"
+            ],
+            recomendacao: "Ideal para iniciantes que desejam melhorar a organização de dados de campo."
+        },
+        videoId: "M5Y1m0G8k9Y"
+    },
+    {
+        id: 6,
+        nome: "Introdução aos Sistemas de Informação Geográfica (SIG)",
+        conteudo: {
+            resumo: "Uso de mapas digitais e geolocalização na análise de sítios arqueológicos.",
+            aprendizagem: [
+                "Noções de coordenadas geográficas",
+                "Criação de mapas temáticos",
+                "Importação de dados de GPS e drones",
+                "Análise espacial aplicada à arqueologia"
+            ],
+            recomendacao: "Importante para pesquisadores que trabalham com mapeamento e localização de sítios."
+        },
+        videoId: "kIID5FDi2JQ"
     }
+
 ];
 
 /* Renderiza a lista de cursos */
@@ -507,5 +716,21 @@ function baixarCertificadoPorNome(nomeEncoded) {
     carregarCursos();
 })();
 </script>
+<script>
+document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const item = button.parentElement;
+
+        // Fecha outros (opcional – efeito acordeão clássico)
+        document.querySelectorAll(".faq-item").forEach(f => {
+            if (f !== item) f.classList.remove("active");
+        });
+
+        // Abre ou fecha o atual
+        item.classList.toggle("active");
+    });
+});
+</script>
+
 </body>
 </html>
