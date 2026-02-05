@@ -3,25 +3,39 @@ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSenso
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch, hub_menu, run_task
+from Chassi import Chassi
+from Anexo import Anexo
+from Hub import Hub
+from SoundEffects import SoundEffects
+
 import MissaoA
 import MissaoB
-import MissaoC
 
 
-mission_selected = hub_menu("A", "B")
+
+hub = Hub()
+sound = SoundEffects(hub= hub.hub)
+chassi = Chassi(hub= hub)
+anexo = Anexo(hub= hub)
+
+sound.ligarRobo()
+missionSelected = hub_menu("A", "B")
 
 while True:
+    if (missionSelected == "A"):
+        sound.iniciarMissao()
 
-    if (mission_selected == "A"):
-        wait(100)
-        run_task(MissaoA.Principal())
-        mission_selected = hub_menu("B", "A")
+        run_task(MissaoA.run(chassi= chassi, anexo= anexo, hub= hub))
+        chassi.stop()
+        sound.finalizarMissao()
 
-    elif (mission_selected == "B"):
-        wait(100)
-        run_task(MissaoB.Principal())
-        mission_selected = hub_menu("C", "B")
+        missionSelected = hub_menu("B", "A")
 
-    elif (mission_selected == "C"):
-        run_task(MissaoC.Principal())
-        mission_selected = hub_menu("C", "B")
+    elif (missionSelected == "B"):
+        sound.iniciarMissao()
+
+        run_task(MissaoB.run(chassi= chassi, anexo= anexo, hub= hub))
+        chassi.stop()
+        sound.finalizarMissao()
+
+        missionSelected = hub_menu("A", "B")

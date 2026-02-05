@@ -1,30 +1,125 @@
-# pybricks blocks file:{"blocks":{"languageVersion":0,"blocks":[{"type":"blockGlobalSetup","id":"bjK,wS1MYO7aiYkFSwd{","x":329,"y":110,"deletable":false,"next":{"block":{"type":"variables_set_motor","id":"%97podIj),8||F62|oR*","fields":{"VAR":{"id":"YeF0/%-WavUtg`4L,B9+"}},"inputs":{"PORT":{"shadow":{"type":"blockParametersPort","id":"en9]Xf.#@9dds$XOM0gj","fields":{"NAME":"B"}}},"POSITIVE_DIRECTION":{"shadow":{"type":"blockParametersDirection","id":"HfjC:vX[mHGDmtOQjc|*","fields":{"SELECTION":"Direction.CLOCKWISE"}}}},"next":{"block":{"type":"variables_set_motor","id":"T?C}L=2Psytntk-DdI)I","fields":{"VAR":{"id":"d@@Z#TEYC@-9,ro*GQ4x"}},"inputs":{"PORT":{"shadow":{"type":"blockParametersPort","id":"U|OxDzsEk(R-E#w*c%CO","fields":{"NAME":"F"}}},"POSITIVE_DIRECTION":{"shadow":{"type":"blockParametersDirection","id":"FA|2hb+YQU+)5tY-9.[#","fields":{"SELECTION":"Direction.CLOCKWISE"}}}}}}}}},{"type":"blockGlobalStart","id":"3tJe|AWl0baN(wH9a$@.","x":-291,"y":95,"deletable":false,"next":{"block":{"type":"blockMotorResetAngle","id":"xNX[Fk2uR-rI!][?$:zP","inputs":{"VAR":{"shadow":{"type":"variables_get_motor_device","id":"~FS])`eIn62mi37|jkR9","fields":{"VAR":{"id":"YeF0/%-WavUtg`4L,B9+","name":"motorEsquerda","type":"Motor"}}}},"VALUE0":{"shadow":{"type":"unit_angle","id":"Wk,aZv:XCQ$=FxEgj:l}","fields":{"VALUE0":0}}}},"next":{"block":{"type":"blockMotorResetAngle","id":"eyjDq9hLr0J|EQPB?voc","inputs":{"VAR":{"shadow":{"type":"variables_get_motor_device","id":"bR:%uF9p2qtB@@ArFaGn","fields":{"VAR":{"id":"d@@Z#TEYC@-9,ro*GQ4x","name":"motorDireita","type":"Motor"}}}},"VALUE0":{"shadow":{"type":"unit_angle","id":"Y[{GIN[~2OlU+s4CcQPD","fields":{"VALUE0":0}}}},"next":{"block":{"type":"blockMotorConfigure","id":"rM*3{iX-6oilRQEh*4.I","extraState":{"optionLevel":1},"fields":{"METHOD":"MOTOR_ACCELERATION"},"inputs":{"VAR":{"shadow":{"type":"variables_get_motor_device","id":"s^9dSRy_BrE0jK;Mh/f/","fields":{"VAR":{"id":"YeF0/%-WavUtg`4L,B9+","name":"motorEsquerda","type":"Motor"}}}},"ARG0":{"shadow":{"type":"unit_angularAcceleration","id":"pv2OsJe.tD*!*rG0P!04","fields":{"VALUE0":10000}}}},"next":{"block":{"type":"blockMotorConfigure","id":"/*6GhI#0rL|G6TtRYVd|","extraState":{"optionLevel":2},"fields":{"METHOD":"MOTOR_MAX_SPEED"},"inputs":{"VAR":{"shadow":{"type":"variables_get_motor_device","id":"D[U}6DP}oOU*xy`d~v7l","fields":{"VAR":{"id":"YeF0/%-WavUtg`4L,B9+","name":"motorEsquerda","type":"Motor"}}}},"ARG0":{"shadow":{"type":"unit_angularVelocity","id":"{+}ds;pOl8]/+,)]DQb/","fields":{"VALUE0":2000}}}},"next":{"block":{"type":"blockMotorConfigure","id":"Qp?AfC?gYPlos`Bdc21Y","extraState":{"optionLevel":1},"fields":{"METHOD":"MOTOR_ACCELERATION"},"inputs":{"VAR":{"shadow":{"type":"variables_get_motor_device","id":"+AD7Fi?fMjX.YDT3g9^q","fields":{"VAR":{"id":"d@@Z#TEYC@-9,ro*GQ4x","name":"motorDireita","type":"Motor"}}}},"ARG0":{"shadow":{"type":"unit_angularAcceleration","id":"$5BKegt!*VklbGp!rK2=","fields":{"VALUE0":10000}}}},"next":{"block":{"type":"blockMotorConfigure","id":"lHG_9q${Q7vh0V=q!Khh","extraState":{"optionLevel":2},"fields":{"METHOD":"MOTOR_MAX_SPEED"},"inputs":{"VAR":{"shadow":{"type":"variables_get_motor_device","id":"-VTH-a0Af)$X),7;7,I~","fields":{"VAR":{"id":"d@@Z#TEYC@-9,ro*GQ4x","name":"motorDireita","type":"Motor"}}}},"ARG0":{"shadow":{"type":"unit_angularVelocity","id":"t`)6]jw%8;5nllG4q)|k","fields":{"VALUE0":2000}}}},"next":{"block":{"type":"blockMultiTask","id":"0~P,:af).QFc,.p$4,*Y","extraState":{"optionLevel":0},"fields":{"METHOD":"MULTITASK_ALL"}}}}}}}}}}}}}}}},{"type":"variables_setup_function","id":"j;w0Ho]q/+W8r*:De#1,","x":322,"y":296,"extraState":{"optionLevel":2},"fields":{"ICON":"DRIVEBASE","VAR":{"id":"0~2sw#lom/].8$U/l_$u"}},"inputs":{"ARG0":{"shadow":{"type":"variables_setup_function_argument","id":"mq)EWV3f$|bFCeWd77P`","fields":{"VAR":{"id":"a)|lx3UgDUY5O+=+K6KW","name":"velocidade","type":"FunctionArgument"}}}},"ARG1":{"shadow":{"type":"variables_setup_function_argument","id":"1-ia[vUE$H]fpzt_SpFJ","fields":{"VAR":{"id":"v83F4Ub%d;:jFjTA]^*j","name":"graus","type":"FunctionArgument"}}}},"STACK":{"block":{"type":"blockMotorRun","id":"v/GE,.E1CnKH9{Dn8CSh","extraState":{"optionLevel":1},"fields":{"METHOD":"MOTOR_RUN_FOR"},"inputs":{"VAR":{"shadow":{"type":"variables_get_motor_device","id":"sI?JUD|H(k8TG0;1Y,:h","fields":{"VAR":{"id":"YeF0/%-WavUtg`4L,B9+","name":"motorEsquerda","type":"Motor"}}}},"VALUE0":{"shadow":{"type":"unit_angularVelocity","id":"TJ],]2(Syf7Qdm/eX76z","fields":{"VALUE0":500}},"block":{"type":"variables_setup_function_argumentConstant","id":"Z:v)T|93-KeRRa_?Y`HX","fields":{"VAR":{"text":"velocidade"}}}},"ANGLE":{"shadow":{"type":"unit_angle","id":"L+#o@j*7nN.#-^Ro]*)B","fields":{"VALUE0":360}},"block":{"type":"variables_setup_function_argumentConstant","id":"|X]DB!J2WJ{Z:kOi%[_L","fields":{"VAR":{"text":"graus"}}}},"THEN":{"shadow":{"type":"parameters_stop_4","id":"pSxce84JmRh5~CppjhtT","fields":{"VALUE":"Stop.HOLD"}}}}}}}},{"type":"variables_setup_function","id":"e2If_@,Ky,|o7]R`$N2M","x":324,"y":464,"extraState":{"optionLevel":2},"fields":{"ICON":"DRIVEBASE","VAR":{"id":"xP?O(qA.u;hv`2xQmZx?"}},"inputs":{"ARG0":{"shadow":{"type":"variables_setup_function_argument","id":"r,(VoB#/`smRAuH~at8h","fields":{"VAR":{"id":"a)|lx3UgDUY5O+=+K6KW","name":"velocidade","type":"FunctionArgument"}}}},"ARG1":{"shadow":{"type":"variables_setup_function_argument","id":"OVS*-=ZG-akXqh[4F$[!","fields":{"VAR":{"id":"v83F4Ub%d;:jFjTA]^*j","name":"graus","type":"FunctionArgument"}}}},"STACK":{"block":{"type":"blockMotorRun","id":"oV0C~$tmA)o(=u7#Z:,.","extraState":{"optionLevel":1},"fields":{"METHOD":"MOTOR_RUN_FOR"},"inputs":{"VAR":{"shadow":{"type":"variables_get_motor_device","id":"CHp9LZHl07(VZJlxaJOq","fields":{"VAR":{"id":"d@@Z#TEYC@-9,ro*GQ4x","name":"motorDireita","type":"Motor"}}}},"VALUE0":{"shadow":{"type":"unit_angularVelocity","id":"TJ],]2(Syf7Qdm/eX76z","fields":{"VALUE0":500}},"block":{"type":"variables_setup_function_argumentConstant","id":"K)YnXE)Off]*%5xj#phw","fields":{"VAR":{"text":"velocidade"}}}},"ANGLE":{"shadow":{"type":"unit_angle","id":"L+#o@j*7nN.#-^Ro]*)B","fields":{"VALUE0":360}},"block":{"type":"variables_setup_function_argumentConstant","id":"/au4mLewelOT3c0:^lK7","fields":{"VAR":{"text":"graus"}}}},"THEN":{"shadow":{"type":"parameters_stop_4","id":"LIfT/=uQ-akk+T5`(!@u","fields":{"VALUE":"Stop.HOLD"}}}}}}}}]},"variables":[{"name":"red","id":"Yri6yo|i{Nv$=RkkdJNs","type":"ColorDef"},{"name":"orange","id":"iiBXbQ7:j,|DYO^22a]|","type":"ColorDef"},{"name":"yellow","id":"DkwKuopQqbus]OdcBi2p","type":"ColorDef"},{"name":"green","id":"tDh4]AvD:fq#H#cCD0eM","type":"ColorDef"},{"name":"cyan","id":"`_23(e3G-v4;8ZGtkKL$","type":"ColorDef"},{"name":"blue","id":"I7Dn@Lnrj?n7S{xcqrji","type":"ColorDef"},{"name":"violet","id":";lmHzvW~jY32w9GEGhUE","type":"ColorDef"},{"name":"magenta","id":"Z:-||R)oLK7cu_?#{/qe","type":"ColorDef"},{"name":"white","id":"EJt6O1C)ByiRyI!+h?r7","type":"ColorDef"},{"name":"none","id":"ddrbL;-58%O@a5uAJHFh","type":"ColorDef"},{"name":"motorEsquerda","id":"YeF0/%-WavUtg`4L,B9+","type":"Motor"},{"name":"motorDireita","id":"d@@Z#TEYC@-9,ro*GQ4x","type":"Motor"},{"name":"girarMotorEsquerdo","id":"0~2sw#lom/].8$U/l_$u","type":"Function"},{"name":"girarMotorDireito","id":"xP?O(qA.u;hv`2xQmZx?","type":"Function"},{"name":"velocidade","id":"a)|lx3UgDUY5O+=+K6KW","type":"FunctionArgument"},{"name":"graus","id":"v83F4Ub%d;:jFjTA]^*j","type":"FunctionArgument"}],"info":{"type":"pybricks","version":"1.3.2"}}
-from pybricks.parameters import Direction, Port, Stop
-from pybricks.pupdevices import Motor
-from pybricks.tools import multitask, run_task, wait
-
-# Set up all devices.
-motorEsquerda = Motor(Port.B, Direction.CLOCKWISE)
-motorDireita = Motor(Port.F, Direction.CLOCKWISE)
-
-async def girarMotorEsquerdo(velocidade, graus):
-    await wait(0)
-    await motorEsquerda.run_angle(velocidade, graus)
-
-async def girarMotorDireito(velocidade, graus):
-    await wait(0)
-    await motorDireita.run_angle(velocidade, graus)
-
-async def main():
-    motorEsquerda.reset_angle(0)
-    motorDireita.reset_angle(0)
-    motorEsquerda.control.limits(acceleration=10000)
-    motorEsquerda.control.limits(speed=2000)
-    motorDireita.control.limits(acceleration=10000)
-    motorDireita.control.limits(speed=2000)
-    await multitask(
-        wait(0),
-    )
+from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Axis
+from pybricks.tools import wait, StopWatch, multitask
 
 
-run_task(main())
+class Constants:    
+    """
+    Constantes de configuração dos motores do anexo.
+
+    Attributes:
+        PORT_LEFT_MOTOR (Port): Porta do motor esquerdo.
+        LEFT_POSITIVE_DIRECTION (Direction): Direção positiva do motor esquerdo.
+
+        PORT_RIGHT_MOTOR (Port): Porta do motor direito.
+        RIGHT_POSITIVE_DIRECTION (Direction): Direção positiva do motor direito.
+    """
+    
+    PORT_LEFT_MOTOR = Port.B
+    LEFT_POSITIVE_DIRECTION = Direction.COUNTERCLOCKWISE
+
+    PORT_RIGHT_MOTOR = Port.F
+    RIGHT_POSITIVE_DIRECTION = Direction.CLOCKWISE
+
+
+class Anexo:
+    """
+    Classe responsável pelo controle dos motores de anexos do robô.
+
+    Permite controlar motores adicionais conectados ao robô
+    (por exemplo, braços ou garras).
+
+    Attributes:
+        hub (PrimeHub): Hub principal.
+        leftMotor (Motor): Motor esquerdo do anexo.
+        rightMotor (Motor): Motor direito do anexo.
+    """
+
+    def __init__(self, hub):
+        """
+        Inicializa os motores do anexo.
+
+        Args:
+            hub (PrimeHub): Hub principal do robô.
+        """
+
+        self.hub = hub
+        self.leftMotor = Motor(port= Constants.PORT_LEFT_MOTOR, positive_direction= Constants.LEFT_POSITIVE_DIRECTION)
+        self.rightMotor = Motor(port= Constants.PORT_RIGHT_MOTOR, positive_direction= Constants.RIGHT_POSITIVE_DIRECTION)
+
+
+    def resetarLeftMotor(self):
+        """
+        Reseta o ângulo do motor esquerdo para 0 graus.
+
+        Example:
+            anexo.resetarLeftMotor()
+        """
+        self.leftMotor.reset_angle(0)
+
+    def resetarRightMotor(self):
+        """
+        Reseta o ângulo do motor direito para 0 graus.
+
+        Example:
+            anexo.resetarRightMotor()
+        """
+        self.rightMotor.reset_angle(0)
+
+    async def girarMotorEsquerda(self, graus, velocidade):
+        """
+        Gira o motor esquerdo um número de graus.
+
+        Args:
+            graus (int): Ângulo de rotação em graus.
+            velocidade (int): Velocidade de rotação (graus/s).
+
+        Example:
+            await anexo.girarMotorEsquerda(graus=90, velocidade=500)
+        """
+        await self.leftMotor.run_angle(speed= velocidade, rotation_angle= graus, then=Stop.HOLD)
+
+    async def girarMotorDireita(self, graus, velocidade):
+        """
+        Gira o motor direito um número de graus.
+
+        Args:
+            graus (int): Ângulo de rotação em graus.
+            velocidade (int): Velocidade de rotação (graus/s).
+
+        Example:
+            await anexo.girarMotorDireita(graus=90, velocidade=500)
+        """
+        await self.rightMotor.run_angle(speed= velocidade, rotation_angle= graus, then=Stop.HOLD)
+
+    async def girarAmbos(self, grausEsquerda, grausDireita, velocidade):
+        """
+        Gira os dois motores do anexo simultaneamente.
+
+        Args:
+            grausEsquerda (int): Ângulo para o motor esquerdo em graus.
+            grausDireita (int): Ângulo para o motor direito em graus.
+            velocidade (int): Velocidade de rotação (graus/s).
+
+        Example:
+            await anexo.girarAmbos(grausEsquerda=90, grausDireita=45, velocidade=400)
+        """
+
+        
+        await multitask(
+            self.girarMotorEsquerda(graus= grausEsquerda, velocidade=velocidade),
+            self.girarMotorDireita(graus= grausDireita, velocidade=velocidade)
+        )
+
+    def stopLeft(self):
+        """
+        Interrompe imediatamente o motor esquerdo.
+        """
+        self.leftMotor.stop()
+
+    def stopRight(self):
+        """
+        Interrompe imediatamente o motor direito.
+        """
+        self.rightMotor.stop()

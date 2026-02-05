@@ -1,17 +1,83 @@
-# pybricks blocks file:{"blocks":{"languageVersion":0,"blocks":[{"type":"blockGlobalSetup","id":"bjK,wS1MYO7aiYkFSwd{","x":0,"y":0,"deletable":false,"next":{"block":{"type":"variables_setup_imported_function","id":"gl-AK.r40_xSC_3Goq$w","fields":{"FROM_MODULE":{"id":"7Vf[.KbVQ/9[^Dn9HBVu"},"VAR":{"id":"2qidyfC]=]V(J+3D?D(H"}},"next":{"block":{"type":"variables_setup_imported_function","id":"Nlq9ED2!erdyxnX$;T:?","fields":{"FROM_MODULE":{"id":"7Vf[.KbVQ/9[^Dn9HBVu"},"VAR":{"id":"g564A[x);K/iO`,q(cq2"}},"next":{"block":{"type":"variables_setup_imported_function","id":"I0aERJ=jmbKPxdzX,$@s","fields":{"FROM_MODULE":{"id":"7Vf[.KbVQ/9[^Dn9HBVu"},"VAR":{"id":"ex_d[RO6|Hy@KIZjCIQg"}},"next":{"block":{"type":"variables_setup_imported_function","id":"w{Pde80JEtKpTHfV@H7T","fields":{"FROM_MODULE":{"id":"7Vf[.KbVQ/9[^Dn9HBVu"},"VAR":{"id":"VT-#g(yWUqH(7wX0y`9["}},"next":{"block":{"type":"variables_setup_imported_function","id":"yIwIX,=JOj(;S#?|in~,","fields":{"FROM_MODULE":{"id":"7Vf[.KbVQ/9[^Dn9HBVu"},"VAR":{"id":"q~lU6zFQ.4e2oh$9HhhS"}},"next":{"block":{"type":"variables_setup_imported_function","id":"7kz:il/P|(]K}aM?bYeL","fields":{"FROM_MODULE":{"id":"|I,wTI7eacZ0sUQHcolT"},"VAR":{"id":"Rq+}4VOEyDPf:IM$p3s*"}},"next":{"block":{"type":"variables_setup_imported_function","id":"U+[fl,s`zT9[}PR(m:n8","fields":{"FROM_MODULE":{"id":"|I,wTI7eacZ0sUQHcolT"},"VAR":{"id":":f*kOf@+P{-qQtCPx0F0"}}}}}}}}}}}}}}}}},{"type":"blockGlobalStart","id":"3tJe|AWl0baN(wH9a$@.","x":0,"y":407,"deletable":false},{"type":"variables_setup_function","id":"hjSvf~3kt_W,Dv_+tB5{","x":0,"y":505,"extraState":{"optionLevel":0},"fields":{"ICON":"TASK","VAR":{"id":"gO}3SJX[pN#kR/Jg7NoG"}},"inputs":{"STACK":{"block":{"type":"blockImportTaskCallStatement","id":"|6HML(,TyKbI(zWb}}rk","extraState":{"optionLevel":1},"inputs":{"VAR":{"shadow":{"type":"variables_get_imported_function","id":"QY+$xe3NMiC$KgIvg6A?","fields":{"VAR":{"id":"2qidyfC]=]V(J+3D?D(H","name":"andarReto","type":"FunctionImported"}}}},"ARG0":{"shadow":{"type":"blockMathNumber","id":"kq/nHmlQgOnIE:,KmAb4","fields":{"NUM":400}}}},"next":{"block":{"type":"blockImportTaskCallStatement","id":"ACD+dSFW)D@ZBSYZW7{o","extraState":{"optionLevel":1},"inputs":{"VAR":{"shadow":{"type":"variables_get_imported_function","id":"2uro6?b4MZjD_|1-X.nc","fields":{"VAR":{"id":"g564A[x);K/iO`,q(cq2","name":"virarAngulo","type":"FunctionImported"}}}},"ARG0":{"shadow":{"type":"blockMathNumber","id":"ll.udel}!2WDQWuMZ(s]","fields":{"NUM":90}}}},"next":{"block":{"type":"blockWaitTime","id":"@uu|/YgM}yk+7#I76xym","inputs":{"VALUE0":{"shadow":{"type":"unit_time","id":"9BcQr+#lREWA,zy!QVN@","fields":{"VALUE0":1000}}}},"next":{"block":{"type":"blockImportTaskCallStatement","id":"JeU{|8dEhsyfJ69/K*;V","extraState":{"optionLevel":1},"inputs":{"VAR":{"shadow":{"type":"variables_get_imported_function","id":"YGuD?F8uyZWxF]G:AF/F","fields":{"VAR":{"id":"g564A[x);K/iO`,q(cq2","name":"virarAngulo","type":"FunctionImported"}}}},"ARG0":{"shadow":{"type":"blockMathNumber","id":"25P}@c=~8nO0j2up:%z%","fields":{"NUM":-90}}}},"next":{"block":{"type":"blockImportTaskCallStatement","id":"6aD.2b.-kbdI`tHpFZ$.","extraState":{"optionLevel":1},"inputs":{"VAR":{"shadow":{"type":"variables_get_imported_function","id":"cvbFh*ca?FffQjutF]kA","fields":{"VAR":{"id":"2qidyfC]=]V(J+3D?D(H","name":"andarReto","type":"FunctionImported"}}}},"ARG0":{"shadow":{"type":"blockMathNumber","id":"wK~bZHsu4.j-`5g_4H)j","fields":{"NUM":-400}}}},"next":{"block":{"type":"blockImportTaskCallStatement","id":"XdE77[WRR1UH-,SwO|(:","extraState":{"optionLevel":0},"inputs":{"VAR":{"shadow":{"type":"variables_get_imported_function","id":"Z@..||WHx8siTjSHYh#M","fields":{"VAR":{"id":"VT-#g(yWUqH(7wX0y`9[","name":"end","type":"FunctionImported"}}}}},"next":{"block":{"type":"blockImportTaskCallStatement","id":"dTF)Etn+r%85u*SQ.W`5","extraState":{"optionLevel":0},"inputs":{"VAR":{"shadow":{"type":"variables_get_imported_function","id":"fs~a}!,c;e?d}j1DTrKw","fields":{"VAR":{"id":"ex_d[RO6|Hy@KIZjCIQg","name":"beep","type":"FunctionImported"}}}}}}}}}}}}}}}}}}}}}]},"variables":[{"name":"red","id":"ZjJH#(XT/x{L]rfi0fFU","type":"ColorDef"},{"name":"orange","id":"e~p.dD^9$+RpJ+lxUukn","type":"ColorDef"},{"name":"yellow","id":"O!x:|+@spX%EaUN`I.+s","type":"ColorDef"},{"name":"green","id":"N`aY?+?b@{WFPa3:^HRW","type":"ColorDef"},{"name":"cyan","id":"n?HURbZ.UsG{yiJ8Hl,A","type":"ColorDef"},{"name":"blue","id":"CjjF[swdE%8(ep`W^Xu9","type":"ColorDef"},{"name":"violet","id":"1S=y5Il]oLdn7;SbjZKz","type":"ColorDef"},{"name":"magenta","id":"=5L|DHFS@s,A+5;Q%=61","type":"ColorDef"},{"name":"white","id":"h[)|de1NSdORurlK[oAO","type":"ColorDef"},{"name":"none","id":"E@Hirb?(};0Fj9eZ..?J","type":"ColorDef"},{"name":"Principal","id":"gO}3SJX[pN#kR/Jg7NoG","type":"Function"},{"name":"Chassi","id":"7Vf[.KbVQ/9[^Dn9HBVu","type":"ModuleImported"},{"name":"Anexo","id":"|I,wTI7eacZ0sUQHcolT","type":"ModuleImported"},{"name":"andarReto","id":"2qidyfC]=]V(J+3D?D(H","type":"FunctionImported"},{"name":"girarMotorEsquerdo","id":"Rq+}4VOEyDPf:IM$p3s*","type":"FunctionImported"},{"name":"virarAngulo","id":"g564A[x);K/iO`,q(cq2","type":"FunctionImported"},{"name":"girarMotorDireito","id":":f*kOf@+P{-qQtCPx0F0","type":"FunctionImported"},{"name":"beep","id":"ex_d[RO6|Hy@KIZjCIQg","type":"FunctionImported"},{"name":"end","id":"VT-#g(yWUqH(7wX0y`9[","type":"FunctionImported"},{"name":"pegarDriveBase","id":"q~lU6zFQ.4e2oh$9HhhS","type":"FunctionImported"}],"info":{"type":"pybricks","version":"1.3.2"}}
-from pybricks.tools import wait
+from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch, multitask, run_task
+from Chassi import Chassi, Speed
 
-from Anexo import girarMotorDireito, girarMotorEsquerdo
-from Chassi import andarReto, beep, end, pegarDriveBase, virarAngulo
-
-def Principal():
-    andarReto(400)
-    virarAngulo(90)
-    wait(1000)
-    virarAngulo(-90)
-    andarReto(-400)
-    end()
-    beep()
+from Anexo import Anexo
+from Hub import Hub
 
 
-# The main program starts here.
+async def run(chassi: Chassi, anexo: Anexo, hub: Hub):
+    await chassi.seguirReto(681)
+    await chassi.virar(45)
+    await chassi.seguirReto(50)
+
+    await anexo.girarAmbos(-470, 470, 400) # Abaixar para pegar
+    await chassi.seguirReto(25)
+    await anexo.girarAmbos(-350, 350, -400) # Levantar
+    await wait(1000)
+    await chassi.seguirReto(-40)
+
+
+    await chassi.virar(-50, Speed.SLOW)
+    await chassi.virar(50)
+
+    await chassi.seguirReto(-50)
+    await chassi.virar(-50)
+    await chassi.seguirReto(85)
+    await chassi.virar(-40) # Faz a missão de virar
+    await chassi.virar(40)
+
+
+
+    await chassi.seguirReto(-50)
+    await chassi.virar(-85)
+    await chassi.seguirReto(-300, Speed.FAST)  # Da ré para empurrar as pedras
+    
+    await chassi.seguirReto(200)
+    await chassi.virar(-5)
+    await chassi.seguirReto(200)
+    await anexo.girarAmbos(-500, 500, 700) # Abaixar para abaixar balde
+    await chassi.virar(5)
+    await chassi.virar(-2)
+    await anexo.girarAmbos(450, -450, 400) # Voltar para posição normal
+
+    await chassi.seguirReto(-50)
+    await chassi.virar(20)
+    await chassi.seguirReto(310)
+
+    await chassi.virar(20)
+    await chassi.seguirReto(-150)   # Empurra de costar para levantar plataforma
+    await chassi.seguirReto(20, Speed.DEFAULT)   # Empurra de costar para levantar plataforma
+
+    await chassi.seguirReto(-340, Speed.FAST)   # Empurra de costar para levantar plataforma
+
+
+    await chassi.virar(5)
+    await chassi.seguirReto(200)
+
+    await chassi.virar(-30)
+    await chassi.seguirReto(-480)
+
+    await chassi.virar(-52)
+    await chassi.seguirReto(350)
+    await chassi.seguirReto(-250, Speed.FAST)
+
+    await chassi.virar(-45, Speed.FAST)
+    await chassi.seguirReto(600, Speed.FAST)
+
+
+    # await chassi.seguirReto(-700, Speed.FAST)
+
+
+
+
+
+
+if __name__ == "__main__":
+    hub = Hub()
+    chassi = Chassi(hub)
+    anexo = Anexo(hub)
+    run_task(run(chassi, anexo, hub))
